@@ -14,7 +14,8 @@ export default class InfiniteGrid extends React.Component {
 			wrapperHeight: React.PropTypes.number,
 			lazyCallback: React.PropTypes.func,
 			renderRangeCallback: React.PropTypes.func,
-			buffer: React.PropTypes.number
+			buffer: React.PropTypes.number,
+      addClassNames:  React.PropTypes.string,
 		}
 	}
 
@@ -230,8 +231,11 @@ export default class InfiniteGrid extends React.Component {
 			};
 			entries.push(<Item {...itemProps} />);
 		}
+    let classNames='infinite-grid-wrapper';
+		if(this.props.addClassNames!=undefined)
+		 classNames+=(' '+this.props.addClassNames);
 		return (
-			<div className='infinite-grid-wrapper' ref='wrapper' onScroll={this._scrollListener} style={this._wrapperStyle()}>
+			<div className={classNames} ref='wrapper' onScroll={this._scrollListener} style={this._wrapperStyle()}>
 				<div ref='grid' className='infinite-grid' style={this._gridStyle()}>
 					{entries}
 				</div>

@@ -55,7 +55,8 @@ var InfiniteGrid = function (_React$Component) {
 				wrapperHeight: _react2.default.PropTypes.number,
 				lazyCallback: _react2.default.PropTypes.func,
 				renderRangeCallback: _react2.default.PropTypes.func,
-				buffer: _react2.default.PropTypes.number
+				buffer: _react2.default.PropTypes.number,
+				addClassNames: _react2.default.PropTypes.string
 			};
 		}
 	}]);
@@ -288,9 +289,11 @@ var InfiniteGrid = function (_React$Component) {
 				};
 				entries.push(_react2.default.createElement(_item2.default, itemProps));
 			}
+			var classNames = 'infinite-grid-wrapper';
+			if (this.props.addClassNames != undefined) classNames += ' ' + this.props.addClassNames;
 			return _react2.default.createElement(
 				'div',
-				{ className: 'infinite-grid-wrapper', ref: 'wrapper', onScroll: this._scrollListener, style: this._wrapperStyle() },
+				{ className: classNames, ref: 'wrapper', onScroll: this._scrollListener, style: this._wrapperStyle() },
 				_react2.default.createElement(
 					'div',
 					{ ref: 'grid', className: 'infinite-grid', style: this._gridStyle() },
