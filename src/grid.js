@@ -164,21 +164,34 @@ export default class InfiniteGrid extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
+
 		if (nextProps.entries.length > this.props.entries.length) {
-			this.setState({
+      console.log("whats happenning?")
+
+      this.setState({
 				initiatedLazyload: false,
+				wrapperHeight: nextProps.wrapperHeight,
 			});
+		}else  if(this.props.wrapperHeight!=nextProps.wrapperHeight) {
+      console.log("whats happenning?")
+
+
+      this.setState({
+        wrapperHeight: nextProps.wrapperHeight,
+      });
 		}
 		// Update these all the time because entries may change on the fly.
 		// this._updateItemDimensions();
 		this._visibleIndexes();
 	}
+	
 
 	componentDidUpdate(prevProps, prevState) {
 		if (typeof this.props.renderRangeCallback === 'function') {
 			this.props.renderRangeCallback(this.state.minItemIndex, this.state.maxItemIndex);
 		}
 	}
+
 
 	shouldComponentUpdate(nextProps, nextState) {
 		return !isEqual(this.state, nextState);

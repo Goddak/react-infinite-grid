@@ -212,9 +212,19 @@ var InfiniteGrid = function (_React$Component) {
 	}, {
 		key: 'componentWillReceiveProps',
 		value: function componentWillReceiveProps(nextProps) {
+
 			if (nextProps.entries.length > this.props.entries.length) {
+				console.log("whats happenning?");
+
 				this.setState({
-					initiatedLazyload: false
+					initiatedLazyload: false,
+					wrapperHeight: nextProps.wrapperHeight
+				});
+			} else if (this.props.wrapperHeight != nextProps.wrapperHeight) {
+				console.log("whats happenning?");
+
+				this.setState({
+					wrapperHeight: nextProps.wrapperHeight
 				});
 			}
 			// Update these all the time because entries may change on the fly.
