@@ -81,7 +81,8 @@ var InfiniteGrid = function (_React$Component) {
 		key: '_wrapperStyle',
 		value: function _wrapperStyle() {
 			return {
-				maxHeight: this._getGridHeight(),
+				//			maxHeight: this._getGridHeight(),
+				maxHeight: '1000px',
 				overflowY: 'scroll',
 				width: '100%',
 				height: this.props.wrapperHeight,
@@ -214,14 +215,12 @@ var InfiniteGrid = function (_React$Component) {
 		value: function componentWillReceiveProps(nextProps) {
 
 			if (nextProps.entries.length > this.props.entries.length) {
-				console.log("whats happenning?");
 
 				this.setState({
 					initiatedLazyload: false,
 					wrapperHeight: nextProps.wrapperHeight
 				});
 			} else if (this.props.wrapperHeight != nextProps.wrapperHeight) {
-				console.log("whats happenning?");
 
 				this.setState({
 					wrapperHeight: nextProps.wrapperHeight
