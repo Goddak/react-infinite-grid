@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import InfiniteGrid from '../src/grid';
 
@@ -6,7 +7,7 @@ class ExampleItem extends React.Component {
 
   static get propTypes() {
     return {
-      index: React.PropTypes.number
+      index: PropTypes.number
     };
   }
 
